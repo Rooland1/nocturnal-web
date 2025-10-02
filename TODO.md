@@ -1,15 +1,5 @@
-- [x] Add About section to nocturnal.html
-- [x] Add Testimonials section to nocturnal.html
-- [x] Add Contact section to nocturnal.html
-- [x] Enhance Hero in nocturnal.html
-- [x] Add animations to nocturnal.html
-- [x] Update footer with newsletter in nocturnal.html
-- [x] Enhance product cards in products.html
-- [x] Add animations to products.html
-- [ ] Add cart functionality: create cart.html, update navbar cart icon
-- [ ] Add profile functionality: create profile.html, update navbar profile icon
-- [ ] Implement user authentication: create login.html, register.html, auth.js
-- [ ] Add cart management: create cart.js, update product buttons
-- [ ] Update nocturnal.html with modals and scripts
-- [ ] Update products.html with modals and scripts
-- [ ] Test the website by opening in browser
+- [x] Rename nocturnal.html to index.html
+- [x] Update cart.html: replace all "nocturnal.html" with "index.html"
+- [x] Update products.html: replace all "nocturnal.html" with "index.html"
+- [x] Update profile.html: replace all "nocturnal.html" with "index.html"
+- [x] Update TODO.md: replace all "nocturnal.html" with "index.html"
