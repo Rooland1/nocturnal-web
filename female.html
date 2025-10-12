@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOCTURNAL - WOMEN'S ELEGANT CLOTHING</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Saját CSS -->
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #333;
+      font-family: 'Oswald', sans-serif;
+    }
+    .navbar {
+      background-color: #e6beae;
+      border-bottom: 1px solid #ddd;
+    }
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #333;
+    }
+    .navbar-brand:hover {
+      color: #b76e79;
+    }
+    .hero {
+      background-color: #e7d8c9;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #333;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      color: #e6beae;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .hero .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-left: 0.5rem;
+      display: inline;
+    }
+    .product-card {
+      background-color: rgba(249, 249, 249, 0.9);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      border-radius: 12px 12px 0 0;
+    }
+    .about {
+      padding: 80px 0;
+      text-align: center;
+      background-color: rgba(248, 248, 248, 0.95);
+    }
+    .footer {
+      background-color: rgba(240, 240, 240, 0.95);
+      padding: 40px 0;
+      text-align: center;
+      color: #666;
+    }
+    .footer a {
+      color: #b76e79;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .kartya{
+        color: #333;
+    }
+
+    /* Make placeholders visible in contact form */
+    .form-control::placeholder {
+      color: #888;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero, .about, .testimonials, .contact {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .testimonials {
+      background-color: #e6beae;
+    }
+
+    #shop {
+      background-color: rgba(248, 248, 248, 0.95);
+    }
+
+    #contact {
+      background-color: rgba(248, 248, 248, 0.95);
+    }
+
+    .modal-content {
+      background-color: rgba(249, 249, 249, 0.9);
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="female.html"><i class="bi bi-moon-fill me-2"></i>NOCTURNAL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="female.html">Kezdőlap</a></li>
+          <li class="nav-item"><a class="nav-link" href="products2.html">Üzlet</a></li>
+          <li class="nav-item"><a class="nav-link" href="female.html">NŐI</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">FÉRFI</a></li>
+          <li class="nav-item"><a class="nav-link" href="products2.html">Termékeink</a></li>
+          <li class="nav-item"><a class="nav-link" href="female.html#about">Rólunk</a></li>
+          <li class="nav-item"><a class="nav-link" href="female.html#contact">Kapcsolat</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <form class="d-flex" role="search">
+            <input class="form-control form-control-sm rounded-pill bg-light text-dark border-0" type="search" placeholder="Keresés..." aria-label="Search" style="width: 180px;">
+            <button class="btn btn-sm btn-outline-dark ms-1" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+          <a href="login2.html" id="profileLink" class="text-dark fs-5"><i class="bi bi-person"></i></a>
+          <a href="cart2.html" class="text-dark position-relative fs-5">
+            <i class="bi bi-cart"></i>
+            <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #b76e79;">
+              0
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <i class="bi bi-moon-fill display-1 text-dark mb-3"></i>
+      <h1>NOCTURNAL <span class="subtitle">Elegant</span></h1>
+      <p class="lead">Elegáns. Időtlen. Kifinomult.</p>
+      <p class="small mb-3">Fedezze fel a kifinomultság lényegét – olyan kreációkat, amelyek megtestesítik a kecsességet és az időtálló eleganciát.</p>
+      <div class="mt-3">
+        <i class="bi bi-star-fill text-warning me-2"></i>
+        <i class="bi bi-star-fill text-warning me-2"></i>
+        <i class="bi bi-star-fill text-warning me-2"></i>
+        <i class="bi bi-star-fill text-warning me-2"></i>
+        <i class="bi bi-star-fill text-warning"></i>
+      </div>
+      <div class="mt-4">
+        <a href="#shop" class="btn btn-lg btn-outline-dark me-3">Vásárlás</a>
+        <a href="#about" class="btn btn-lg btn-outline-dark">Tudjon meg többet</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- SHOP -->
+  <section id="shop" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Kiemelt Kollekciók</h2>
+      <div class="row g-4">
+        <!-- Termék kártya -->
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="pulcsi2.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+                <a class="kartya">
+              <h5 class="card-title">Selyem Estélyi Ruha</h5>
+              <p class="card-text">Luxus selyemruha különleges alkalmakra.</p>
+              <p class="fw-bold">49.990 Ft</p>
+              <a href="#" class="btn btn-outline-dark w-100">Kosárba</a>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Másik termék -->
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="pulcsi3.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+            <a class="kartya">
+              <h5 class="card-title">Kasmír Blúz</h5>
+              <p class="card-text">Puha kasmír blúz mindennapi eleganciához.</p>
+              <p class="fw-bold">29.990 Ft</p>
+              <a href="#" class="btn btn-outline-dark w-100">Kosárba</a>
+            </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Harmadik termék -->
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="pulcsi4.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+              <a class="kartya">
+              <h5 class="card-title">Gyöngy Hímzett Ruha</h5>
+              <p class="card-text">Delikát gyöngyhímzett ruha kifinomult pillanatokra.</p>
+              <p class="fw-bold">39.990 Ft</p>
+              <a href="#" class="btn btn-outline-dark w-100">Kosárba</a>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Rólunk</h2>
+      <p class="lead mb-3">A NOCTURNAL Női kollekció elegáns és kifinomult divatmárka, amely időtálló stílust és kifinomultságot hoz minden nő számára.</p>
+      <p>2025-ben alapítottuk, küldetésünk olyan ruházatot kínálni, amely nemcsak eleganciát áraszt, hanem tükrözi belső kecsességét és időtálló szépségét.</p>
+      <p>Csatlakozzon hozzánk, és legyen részese a NOCTURNAL közösségnek, ahol a stílus és a kifinomultság találkozik.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Vélemények</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote">
+            <p class="mb-3">"A NOCTURNAL darabok egyszerűen lenyűgözőek! A minőség és az elegancia páratlan."</p>
+            <footer class="blockquote-footer text-dark">Maja S.</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote">
+            <p class="mb-3">"Imádom az időtálló terveket, amelyek kifinomultnak és kecsesnek érezzék magukat."</p>
+            <footer class="blockquote-footer text-dark">Zoé H.</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote">
+            <p class="mb-3">"A NOCTURNAL közösség tagjának lenni olyan, mint átölelni a valódi eleganciát."</p>
+            <footer class="blockquote-footer text-dark">Viki T.</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Kapcsolat</h2>
+      <p class="mb-4">Ne habozzon érdeklődni! Küldjön nekünk üzenetet, és hamarosan válaszolunk.</p>
+      <form id="contactForm" class="row g-3 justify-content-center">
+        <div class="col-md-6">
+          <input type="text" id="name" name="name" class="form-control bg-light text-dark border-secondary" placeholder="Neve" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="email" name="email" class="form-control bg-light text-dark border-secondary" placeholder="Email címe" required>
+        </div>
+        <div class="col-12">
+          <textarea id="message" name="message" class="form-control bg-light text-dark border-secondary" rows="4" placeholder="Üzenete" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-outline-dark btn-lg">Küldés</button>
+        </div>
+      </form>
+      <div id="contactFeedback" class="mt-3"></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="py-5">
+    <div class="container">
+  </section>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Bejelentkezés</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginUsername" class="form-label">Felhasználónév</label>
+              <input type="text" class="form-control bg-light text-dark border-secondary" id="loginUsername" required />
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Jelszó</label>
+              <input type="password" class="form-control bg-light text-dark border-secondary" id="loginPassword" required />
+            </div>
+            <button type="submit" class="btn btn-outline-dark w-100">Bejelentkezés</button>
+          </form>
+          <p class="mt-3 text-center">
+            Nincs még fiókod? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regisztrálj itt</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Regisztráció</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="registerUsername" class="form-label">Felhasználónév</label>
+              <input type="text" class="form-control bg-light text-dark border-secondary" id="registerUsername" required />
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email</label>
+              <input type="email" class="form-control bg-light text-dark border-secondary" id="registerEmail" required />
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Jelszó</label>
+              <input type="password" class="form-control bg-light text-dark border-secondary" id="registerPassword" required />
+            </div>
+            <button type="submit" class="btn btn-outline-dark w-100">Regisztráció</button>
+          </form>
+          <p class="mt-3 text-center">
+            Már van fiókod? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Jelentkezz be itt</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+          <h5 class="mb-3">Iratkozzon fel hírlevelünkre</h5>
+          <form class="d-flex">
+            <input type="email" class="form-control bg-light text-dark border-secondary me-2" placeholder="Email címe" required>
+            <button type="submit" class="btn btn-outline-dark">Feliratkozás</button>
+          </form>
+        </div>
+      </div>
+      <p>© 2025 NOCTURNAL | Minden jog fenntartva</p>
+      <div>
+        <a href="#">Instagram</a> |
+        <a href="#">TikTok</a> |
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // Dynamic profile link update based on login status
+    function updateProfileLink() {
+      const profileLink = document.getElementById('profileLink');
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        profileLink.href = 'profile2.html';
+        profileLink.innerHTML = '<i class="bi bi-person-check"></i>'; // Optional: change icon to indicate logged in
+      } else {
+        profileLink.href = 'login2.html';
+        profileLink.innerHTML = '<i class="bi bi-person"></i>';
+      }
+    }
+
+    // Call on page load
+    document.addEventListener('DOMContentLoaded', updateProfileLink);
+
+    // Handle login form in modal
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if (username && password) {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.username === username && u.password === password);
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          alert('Sikeres bejelentkezés!');
+          updateProfileLink(); // Update link after login
+          window.location.href = 'profile2.html';
+        } else {
+          alert('Hibás felhasználónév vagy jelszó!');
+        }
+      }
+    });
+
+    // Handle register form in modal
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value.trim();
+
+      if (username && email && password) {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        if (users.find(u => u.username === username)) {
+          alert('Ez a felhasználónév már foglalt!');
+          return;
+        }
+        users.push({ username, email, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Sikeres regisztráció! Most bejelentkezhetsz.');
+        // Switch to login modal
+        const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+        loginModal.show();
+      }
+    });
+
+    // Update product buttons to add to cart
+    document.querySelectorAll('.btn-outline-dark').forEach(btn => {
+      if (btn.textContent.trim() === 'Kosárba') {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const card = this.closest('.card-body');
+          const title = card.querySelector('.card-title').textContent;
+          const price = card.querySelector('.fw-bold').textContent;
+          const sizeSelect = card.querySelector('select');
+          const size = sizeSelect ? sizeSelect.value.split(': ')[1] : 'M'; // Default size
+          addToCart({ title, price, size });
+        });
+      }
+    });
+  </script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('contactFeedback');
+      feedback.textContent = '';
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        feedback.textContent = 'Kérlek, tölts ki minden mezőt!';
+        feedback.style.color = 'red';
+        return;
+      }
+
+      try {
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        if (response.ok) {
+          feedback.textContent = 'Köszönjük az üzeneted! Hamarosan válaszolunk.';
+          feedback.style.color = 'green';
+          this.reset();
+        } else {
+          const data = await response.json();
+          feedback.textContent = data.error || 'Hiba történt az üzenet küldésekor.';
+          feedback.style.color = 'red';
+        }
+      } catch (error) {
+        feedback.textContent = 'Nem sikerült kapcsolatot létesíteni a szerverrel.';
+        feedback.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
