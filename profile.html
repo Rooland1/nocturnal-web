@@ -85,11 +85,49 @@
   </nav>
 
   <section class="profile-info">
-    <h2>Profil</h2>
+    <h2><i class="bi bi-person-circle me-2"></i>Profil</h2>
     <div id="profileContent">
-      <!-- User info will be displayed here -->
+      <!-- Profile picture -->
+      <div class="mb-3 text-center">
+        <img id="profilePic" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9maWw8L3RleHQ+Cjwvc3ZnPg==" alt="Profilkép" class="rounded-circle mb-2" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #c20aff;">
+        <input type="file" id="profilePicInput" accept="image/*" class="form-control form-control-sm bg-dark text-light border-secondary" style="max-width: 300px; margin: 0 auto;" title="Nincs fájl kiválasztva">
+      </div>
+      <!-- Editable fields -->
+      <form id="profileForm">
+        <div class="mb-3">
+          <label for="username" class="form-label"><i class="bi bi-person"></i> Felhasználónév</label>
+          <input type="text" class="form-control bg-dark text-light border-secondary" id="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label"><i class="bi bi-envelope"></i> Email</label>
+          <input type="email" class="form-control bg-dark text-light border-secondary" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="bio" class="form-label"><i class="bi bi-chat-dots"></i> Bio</label>
+          <textarea class="form-control bg-dark text-light border-secondary" id="bio" rows="3" placeholder="Írj valamit magadról..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-light w-100"><i class="bi bi-save"></i> Mentés</button>
+      </form>
+      <!-- Password change -->
+      <hr class="my-4" style="border-color: #333;">
+      <h5><i class="bi bi-key"></i> Jelszó változtatás</h5>
+      <form id="passwordForm">
+        <div class="mb-3">
+          <label for="oldPassword" class="form-label">Régi jelszó</label>
+          <input type="password" class="form-control bg-dark text-light border-secondary" id="oldPassword" required>
+        </div>
+        <div class="mb-3">
+          <label for="newPassword" class="form-label">Új jelszó</label>
+          <input type="password" class="form-control bg-dark text-light border-secondary" id="newPassword" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Új jelszó megerősítése</label>
+          <input type="password" class="form-control bg-dark text-light border-secondary" id="confirmPassword" required>
+        </div>
+        <button type="submit" class="btn btn-outline-warning w-100"><i class="bi bi-shield-lock"></i> Jelszó változtatás</button>
+      </form>
     </div>
-    <button id="logoutBtn" class="btn btn-outline-light mt-3">Kijelentkezés</button>
+    <button id="logoutBtn" class="btn btn-outline-danger mt-3 w-100"><i class="bi bi-box-arrow-right"></i> Kijelentkezés</button>
   </section>
 
   <!-- Login Modal -->
@@ -182,7 +220,8 @@
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           alert('Sikeres bejelentkezés!');
-          window.location.reload();
+          // Use logout function from auth.js to reload page properly
+          logout();
         } else {
           alert('Hibás felhasználónév vagy jelszó!');
         }
@@ -204,6 +243,21 @@
         }
         users.push({ username, email, password });
         localStorage.setItem('users', JSON.stringify(users));
+
+        // Create registration data text file content
+        const registrationData = `Felhasználónév: ${username}\nEmail: ${email}\nJelszó: ${password}\nRegisztráció dátuma: ${new Date().toLocaleString()}`;
+
+        // Create a Blob and trigger download
+        const blob = new Blob([registrationData], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `registration-${username}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
         alert('Sikeres regisztráció! Most bejelentkezhetsz.');
         // Switch to login modal
         const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
@@ -213,20 +267,99 @@
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const profileContent = document.getElementById('profileContent');
       const logoutBtn = document.getElementById('logoutBtn');
+      const profilePic = document.getElementById('profilePic');
+      const profilePicInput = document.getElementById('profilePicInput');
+      const profileForm = document.getElementById('profileForm');
+      const passwordForm = document.getElementById('passwordForm');
 
-      const user = JSON.parse(localStorage.getItem('user'));
+      let user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
-        // Redirect to login if not logged in
         window.location.href = 'login.html';
         return;
       }
 
-      profileContent.innerHTML = `
-        <p><strong>Felhasználónév:</strong> ${user.username}</p>
-        <p><strong>Email:</strong> ${user.email}</p>
-      `;
+      // Initialize user object with new fields if missing
+      if (!user.profilePic) user.profilePic = '';
+      if (!user.bio) user.bio = '';
+
+      // Populate fields
+      document.getElementById('username').value = user.username;
+      document.getElementById('email').value = user.email;
+      document.getElementById('bio').value = user.bio;
+      if (user.profilePic) {
+        profilePic.src = user.profilePic;
+      }
+
+      // Profile picture upload
+      profilePicInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            profilePic.src = reader.result;
+            user.profilePic = reader.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Profile form submit
+      profileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newUsername = document.getElementById('username').value.trim();
+        const newEmail = document.getElementById('email').value.trim();
+        const newBio = document.getElementById('bio').value.trim();
+
+        if (newUsername && newEmail) {
+          const users = JSON.parse(localStorage.getItem('users')) || [];
+          // Check if new username is taken by another user
+          if (users.find(u => u.username === newUsername && u.username !== user.username)) {
+            alert('Ez a felhasználónév már foglalt!');
+            return;
+          }
+          const oldUsername = user.username;
+          user.username = newUsername;
+          user.email = newEmail;
+          user.bio = newBio;
+          // Save profilePic as well on form submit
+          user.profilePic = profilePic.src;
+          updateUser(user);
+          // Also update the user in the users array and save it back to localStorage using oldUsername
+          const userIndex = users.findIndex(u => u.username === oldUsername);
+          if (userIndex !== -1) {
+            users[userIndex] = user;
+            localStorage.setItem('users', JSON.stringify(users));
+          }
+          localStorage.setItem('user', JSON.stringify(user)); // Save updated user to localStorage
+          alert('Profil frissítve!');
+        }
+      });
+
+      // Password form submit
+      passwordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const oldPass = document.getElementById('oldPassword').value;
+        const newPass = document.getElementById('newPassword').value;
+        const confirmPass = document.getElementById('confirmPassword').value;
+
+        if (oldPass !== user.password) {
+          alert('Hibás régi jelszó!');
+          return;
+        }
+        if (newPass !== confirmPass) {
+          alert('Az új jelszavak nem egyeznek!');
+          return;
+        }
+        if (newPass.length < 6) {
+          alert('Az új jelszónak legalább 6 karakter hosszúnak kell lennie!');
+          return;
+        }
+        user.password = newPass;
+        updateUser(user);
+        alert('Jelszó megváltoztatva!');
+        passwordForm.reset();
+      });
 
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('user');

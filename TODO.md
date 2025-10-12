@@ -1,5 +1,4 @@
-- [x] Rename nocturnal.html to index.html
-- [x] Update cart.html: replace all "nocturnal.html" with "index.html"
-- [x] Update products.html: replace all "nocturnal.html" with "index.html"
-- [x] Update profile.html: replace all "nocturnal.html" with "index.html"
-- [x] Update TODO.md: replace all "nocturnal.html" with "index.html"
+# TODO List for Adding MEN Section to Navbar
+
+- [x] Update index.html navbar to add MEN link after WOMEN
+- [x] Update female.html navbar to add MEN link after WOMEN

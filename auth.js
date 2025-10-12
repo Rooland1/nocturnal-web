@@ -26,5 +26,16 @@ function updateProfileLink() {
   }
 }
 
+// Update user data in localStorage
+function updateUser(updatedUser) {
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const index = users.findIndex(u => u.username === updatedUser.username);
+  if (index !== -1) {
+    users[index] = updatedUser;
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  }
+}
+
 // Call on page load
 document.addEventListener('DOMContentLoaded', updateProfileLink);
