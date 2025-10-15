@@ -49,11 +49,7 @@
       font-weight: 700;
       text-transform: uppercase;
       font-family: 'Playfair Display', serif;
-<<<<<<< HEAD
       color: #b76e79;
-=======
-      color: #b76e79;
->>>>>>> 8df19cfe4ef7695002c4f7da7f12d9f220500917
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
     .hero .subtitle {
@@ -134,6 +130,33 @@
 
     .form-control {
       background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 767px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero .lead {
+        font-size: 1rem;
+      }
+      .navbar .form-control {
+        width: 120px !important;
+      }
+      .product-card {
+        margin-bottom: 20px;
+      }
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+      .footer form input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .footer form button {
+        width: 100%;
+      }
     }
 
   </style>
