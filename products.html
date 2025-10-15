@@ -122,54 +122,8 @@
         <input type="text" id="productSearch" class="form-control" placeholder="Keresés termékek között...">
       </div>
       <div class="row g-4" id="productList">
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="pulcsi.png" class="card-img-top" alt="Termék">
-            <div class="card-body">
-              <a class="kartya">
-                <h5 class="card-title">Eclipse Veil Hoodie</h5>
-                <p class="card-text">Titokzatos fekete pulcsi holdfogyatkozás motívummal.</p>
-                <p class="fw-bold">11.990 Ft</p>
-                <div class="mb-2">
-                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
-                    <option>Méret: S</option>
-                    <option>Méret: M</option>
-                    <option>Méret: L</option>
-                    <option>Méret: XL</option>
-                  </select>
-                </div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#quickViewModal">Gyors nézet</button>
-                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="pulcsi2.png" class="card-img-top" alt="Termék">
-            <div class="card-body">
-              <a class="kartya">
-                <h5 class="card-title">Eclipse Veil Zip-Up</h5>
-                <p class="card-text">Szellemszerű limitált kiadású pulcsi az éjszaka mélyén.</p>
-                <p class="fw-bold">13.990 Ft</p>
-                <div class="mb-2">
-                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
-                    <option>Méret: S</option>
-                    <option>Méret: M</option>
-                    <option>Méret: L</option>
-                    <option>Méret: XL</option>
-                  </select>
-                </div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#quickViewModal">Gyors nézet</button>
-                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
+
+
         <div class="col-md-3">
           <div class="card product-card">
             <img src="pulcsi3.png" class="card-img-top" alt="Termék">
@@ -187,7 +141,7 @@
                   </select>
                 </div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#quickViewModal">Gyors nézet</button>
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
                   <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
                 </div>
               </a>
@@ -211,7 +165,7 @@
                   </select>
                 </div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#quickViewModal">Gyors nézet</button>
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
                   <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
                 </div>
               </a>
@@ -235,7 +189,103 @@
                   </select>
                 </div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#quickViewModal">Gyors nézet</button>
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
+                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="joggerteljes.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+              <a class="kartya">
+                <h5 class="card-title">Eclipse Jogger</h5>
+                <p class="card-text">Fekete jogger prémium minőségben.</p>
+                <p class="fw-bold">12.990 Ft</p>
+                <div class="mb-2">
+                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
+                    <option>Méret: S</option>
+                    <option>Méret: M</option>
+                    <option>Méret: L</option>
+                    <option>Méret: XL</option>
+                  </select>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
+                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="baszo1teljes.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+              <a class="kartya">
+                <h5 class="card-title">Eclipse Veil Zip-Up</h5>
+                <p class="card-text">Fekete zip-up hoodie prémium minőségben.</p>
+                <p class="fw-bold">29.990 Ft</p>
+                <div class="mb-2">
+                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
+                    <option>Méret: S</option>
+                    <option>Méret: M</option>
+                    <option>Méret: L</option>
+                    <option>Méret: XL</option>
+                  </select>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
+                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="baszo2teljes.png" class="card-img-top" alt="Termék">
+            <div class="card-body">
+              <a class="kartya">
+                <h5 class="card-title">Cosmic Eclipse Zip-Up</h5>
+                <p class="card-text">Kozmikus mintákkal díszített fekete zip-up prémium anyagból.</p>
+                <p class="fw-bold">12.990 Ft</p>
+                <div class="mb-2">
+                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
+                    <option>Méret: S</option>
+                    <option>Méret: M</option>
+                    <option>Méret: L</option>
+                    <option>Méret: XL</option>
+                  </select>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
+                  <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="baszo3.jpg" class="card-img-top" alt="Termék">
+            <div class="card-body">
+              <a class="kartya">
+                <h5 class="card-title">Midnight Eclipse Zip-Up Hoodie</h5>
+                <p class="card-text">Fekete hoodie prémium minőségben.</p>
+                <p class="fw-bold">19.990 Ft</p>
+                <div class="mb-2">
+                  <select class="form-select form-select-sm bg-dark text-light border-secondary">
+                    <option>Méret: S</option>
+                    <option>Méret: M</option>
+                    <option>Méret: L</option>
+                    <option>Méret: XL</option>
+                  </select>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewProduct(this)">Részletek</button>
                   <a href="#" class="btn btn-outline-light btn-sm flex-fill">Kosárba</a>
                 </div>
               </a>
@@ -301,6 +351,96 @@
           <p class="mt-3 text-center">
             Már van fiókod? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Jelentkezz be itt</a>
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quickViewModalLabel">Termék részletek</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img id="modalProductImage" src="" class="img-fluid rounded" alt="Termék kép">
+            </div>
+            <div class="col-md-6">
+              <h4 id="modalProductTitle"></h4>
+              <p class="fw-bold" id="modalProductPrice"></p>
+              <p id="modalProductDescription"></p>
+              <div class="mb-3">
+                <label for="modalSizeSelect" class="form-label">Méret</label>
+                <select class="form-select bg-dark text-light border-secondary" id="modalSizeSelect">
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                  <option>XL</option>
+                </select>
+              </div>
+              <button class="btn btn-outline-light w-100" id="addToCartFromModal">Kosárba</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Anyagok</h5>
+              <p id="modalMaterials">80% pamut, 20% poliészter. Puha, lélegző anyag prémium minőségben.</p>
+            </div>
+            <div class="col-md-6">
+              <h5>Ápolási útmutató</h5>
+              <ul id="modalCareInstructions">
+                <li>Mosás: 30°C-on, színes ruhákkal együtt</li>
+                <li>Szárítás: Felfüggesztve, ne centrifugázz</li>
+                <li>Vasalás: Közepes hőfokon</li>
+                <li>Kémiai tisztítás: Nem ajánlott</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <h5>Mérettáblázat</h5>
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th>Méret</th>
+                  <th>Mellkas (cm)</th>
+                  <th>Derék (cm)</th>
+                  <th>Hossz (cm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>S</td>
+                  <td>88-92</td>
+                  <td>76-80</td>
+                  <td>65</td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>92-96</td>
+                  <td>80-84</td>
+                  <td>67</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>96-100</td>
+                  <td>84-88</td>
+                  <td>69</td>
+                </tr>
+                <tr>
+                  <td>XL</td>
+                  <td>100-104</td>
+                  <td>88-92</td>
+                  <td>71</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -393,6 +533,51 @@
           card.style.display = 'none';
         }
       });
+    });
+
+    // View Product function
+    function viewProduct(button) {
+      const card = button.closest('.card-body');
+      const imgSrc = card.previousElementSibling.src;
+      const title = card.querySelector('.card-title').textContent;
+      const description = card.querySelector('.card-text').textContent;
+      const price = card.querySelector('.fw-bold').textContent;
+
+      // Redirect to inspect.html with product data
+      const params = new URLSearchParams({
+        title: encodeURIComponent(title),
+        image: encodeURIComponent(imgSrc),
+        description: encodeURIComponent(description),
+        price: encodeURIComponent(price)
+      });
+      window.location.href = `inspect.html?${params.toString()}`;
+    }
+
+    // Quick View Modal functionality
+    document.querySelectorAll('button[data-bs-target="#quickViewModal"]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.card-body');
+        const imgSrc = card.previousElementSibling.src;
+        const title = card.querySelector('.card-title').textContent;
+        const description = card.querySelector('.card-text').textContent;
+        const price = card.querySelector('.fw-bold').textContent;
+
+        document.getElementById('modalProductImage').src = imgSrc;
+        document.getElementById('modalProductTitle').textContent = title;
+        document.getElementById('modalProductDescription').textContent = description;
+        document.getElementById('modalProductPrice').textContent = price;
+      });
+    });
+
+    // Add to cart from modal
+    document.getElementById('addToCartFromModal').addEventListener('click', function() {
+      const title = document.getElementById('modalProductTitle').textContent;
+      const price = document.getElementById('modalProductPrice').textContent;
+      const size = document.getElementById('modalSizeSelect').value;
+      addToCart({ title, price, size });
+      // Close modal
+      const modal = bootstrap.Modal.getInstance(document.getElementById('quickViewModal'));
+      modal.hide();
     });
   </script>
 </body>

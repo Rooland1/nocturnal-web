@@ -1,8 +1,15 @@
-# TODO List for Adding MEN Section to Navbar
+# TODO: Implement Product Detail Pages
 
-- [x] Update index.html navbar to add MEN link after WOMEN
-- [x] Update female.html navbar to add MEN link after WOMEN
+## Tasks
+- [x] Create inspect2.html with light theme product detail page
+- [x] Update products.html to link "Részletek" buttons to inspect2.html
+- [x] Update inspect.html to dark theme to match products.html theme
+- [x] Update products2.html to link "Részletek" buttons to inspect2.html (if applicable)
+- [x] Test product detail page functionality from products.html
+- [x] Ensure cart functionality works on product detail pages
 
-# TODO List for Translating Product Titles
-
-- [x] Translate product titles in female.html to English ("Silk Evening Dress", "Cashmere Blouse", "Pearl Embroidered Dress") while keeping descriptions in Hungarian
+## Notes
+- inspect2.html has light theme, inspect.html has dark theme.
+- Product detail pages include: image, title, price, description, size selector, add to cart, materials, care instructions, size guide.
+- Data is passed via URL parameters.
+- Cart integration uses cart.js.
