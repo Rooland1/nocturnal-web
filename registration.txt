@@ -1,0 +1,1 @@
+Felhasználónév: testuser\nEmail: test@example.com\nJelszó: testpass\nRegisztráció dátuma: 16/10/2025, 20:48:59\n\n

@@ -1,0 +1,5 @@
+Név: Test User
+Email: test@example.com
+Üzenet: Test message
+Dátum: 16/10/2025, 20:48:46
+
